@@ -263,7 +263,7 @@ pub(crate) trait TypeFinder {
     fn add_type_definitions_to(&self, types: &mut TypeUniverse) -> Result<()>;
 }
 
-impl<T: TypeFinder> TypeFinder for &Vec<T> {
+impl<T: TypeFinder> TypeFinder for &[T] {
     fn add_type_definitions_to(&self, types: &mut TypeUniverse) -> Result<()> {
         for item in self.iter() {
             (&item).add_type_definitions_to(types)?;

@@ -83,7 +83,7 @@ impl<'ci> ComponentInterface {
         let defns = weedle::parse(idl.trim()).unwrap();
         // We process the WebIDL definitions in two passes.
         // First, go through and look for all the named types.
-        ci.types.add_type_definitions_from(&defns)?;
+        ci.types.add_type_definitions_from(defns.as_slice())?;
         // With those names resolved, we can build a complete representation of the API.
         APIBuilder::process(&defns, &mut ci)?;
         if ci.namespace.is_empty() {
