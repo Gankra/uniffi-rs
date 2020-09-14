@@ -270,7 +270,7 @@ fun String.Companion.read(buf: ByteBuffer): String {
 fun String.lower(): RustBuffer.ByValue {
     val byteArr = this.toByteArray(Charsets.UTF_8)
     // Ideally we'd pass these bytes to `ffi_bytebuffer_from_bytes`, but doing so would require us
-    // to copy them into a JNA `Memory`. So we might as well directly copy then into a `RustBuffer`.
+    // to copy them into a JNA `Memory`. So we might as well directly copy them into a `RustBuffer`.
     val rbuf = RustBuffer.alloc(byteArr.size)
     rbuf.asByteBuffer()!!.put(byteArr)
     return rbuf
