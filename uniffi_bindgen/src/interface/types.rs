@@ -189,7 +189,6 @@ pub(crate) struct TypeUniverse {
     // Named type definitions (including aliases).
     type_definitions: HashMap<String, Type>,
     // All the types in the universe, by canonical type name.
-    // We should use a `HashSet`
     all_known_types: HashSet<Type>,
 }
 
